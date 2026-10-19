@@ -73,3 +73,14 @@ class TrackManager:
 
     def images_in_track(self, root: Tuple[int, int]) -> set:
         return {img for img, _ in self._members[root]}
+
+    def has_observation(self, key: Tuple[int, int]) -> bool:
+        return key in self._parent
+
+    def has_conflict(self, root: Tuple[int, int]) -> bool:
+        seen = set()
+        for img, _ in self._members[root]:
+            if img in seen:
+                return True
+            seen.add(img)
+        return False
