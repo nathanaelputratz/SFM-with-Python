@@ -56,7 +56,7 @@ class FeatureMatcher:
         if self.params.method == 'bf':
             return cv2.BFMatcher(self.params.norm_type, crossCheck=False)
         index_params = dict(
-            algorithm=cv2.FLANN_INDEX_KDTREE,
+            algorithm=1,
             trees=self.params.flann_trees,
         )
         search_params = dict(checks=self.params.flann_checks)
